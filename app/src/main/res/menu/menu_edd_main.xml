@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".EddMainActivity">
+    <item android:id="@+id/action_settings"
+        android:icon="@drawable/ic_setting_dark"
+        android:title="@string/action_settings"
+        app:showAsAction="always"/>
+    <item android:id="@+id/search"
+        android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
+        android:title="search"
+        app:showAsAction="ifRoom"  />
+    <item android:id="@+id/logOut"
+        android:icon="@drawable/abc_ic_commit_search_api_mtrl_alpha"
+        android:title="Logout"
+        app:showAsAction="always|withText"  />
+
+</menu>

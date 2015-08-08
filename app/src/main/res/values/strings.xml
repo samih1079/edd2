@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">EducatorDay</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="signinBTn">Sign in</string>
+    <string name="emailhint">e-mail</string>
+    <string name="hintpassw">Password</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnsignup">New user</string>
+    <string name="chbx_keep_signin">Keep sign in</string>
+    <string name="btnSignUpSave">Save</string>
+    <string name="passw2">Password again</string>
+
+</resources>
