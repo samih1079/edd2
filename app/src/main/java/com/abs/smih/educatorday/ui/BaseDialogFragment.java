@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
 public  class BaseDialogFragment extends DialogFragment {
     protected View root;
     protected WeakReference<Activity> weakContext;
-
+  
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
