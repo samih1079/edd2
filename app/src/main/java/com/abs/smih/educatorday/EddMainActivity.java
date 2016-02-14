@@ -1,31 +1,30 @@
 package com.abs.smih.educatorday;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.net.Uri;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
+
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.abs.smih.educatorday.dataManaging.Student;
-import com.parse.LogInCallback;
-import com.parse.ParseException;
+import com.abs.smih.educatorday.ui.AddStudentFragment;
+import com.abs.smih.educatorday.ui.LogIn_LogUPFragment;
+import com.abs.smih.educatorday.ui.SigninFragment;
+import com.abs.smih.educatorday.ui.StudentListFragment;
+import com.abs.smih.educatorday.ui.TestStudsListFragment;
+import com.abs.smih.educatorday.ui.TestingFragment;
 import com.parse.ParseUser;
 
 public class EddMainActivity extends AppCompatActivity {
 
 
-    private SigninFragment signinFragment;
+//    private SigninFragment signinFragment;
     private StudentListFragment studentListFragment;
+    private LogIn_LogUPFragment logIn_logUPFragment;
     private AddStudentFragment addStudentFragment;
+    private TestingFragment testingFragment;
+    private TestStudsListFragment testStudsListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,21 +33,37 @@ public class EddMainActivity extends AppCompatActivity {
         //check if the user keeping  logged in
         if (ParseUser.getCurrentUser() != null && ParseUser.getCurrentUser().getUsername() != null) {
             //goToStudentListFragment();
-            goAddStudentFragment();
+           // goAddStudentFragment();
+           // goToTestingFragment();
+            goToTestStudsListFragment();
         } else {
-           goToSignInUserFragment();
+           goToLogIn_LogUPFragment();
         }
 
     }
 
-    public void goToSignInUserFragment() {
-        if (signinFragment == null)
-            signinFragment = new SigninFragment();
+    private void goToTestStudsListFragment()
+    {
+        if (testStudsListFragment == null)
+            testStudsListFragment = new TestStudsListFragment();
 
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        fragmentTransaction.replace(R.id.main_frame, signinFragment, SigninFragment.class.getName());
+        fragmentTransaction.replace(R.id.main_frame, testStudsListFragment, TestStudsListFragment.class.getName());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.commit();
+    }
+
+    public void goToLogIn_LogUPFragment() {
+        if (logIn_logUPFragment == null)
+            logIn_logUPFragment = new LogIn_LogUPFragment();
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.replace(R.id.main_frame, logIn_logUPFragment, LogIn_LogUPFragment.class.getName());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
@@ -59,10 +74,10 @@ public class EddMainActivity extends AppCompatActivity {
         if (addStudentFragment == null)
             addStudentFragment = new AddStudentFragment();
 
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        fragmentTransaction.replace(R.id.main_frame, addStudentFragment, SigninFragment.class.getName());
+        fragmentTransaction.replace(R.id.main_frame, addStudentFragment, AddStudentFragment.class.getName());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
@@ -70,10 +85,10 @@ public class EddMainActivity extends AppCompatActivity {
         // signinFragment.show(getFragmentManager(),"signin");
     }
 
-    public void goToStudentListFragment() {
+    public void goToStudentListFragment2() {
         if (studentListFragment == null)
             studentListFragment = new StudentListFragment();
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         fragmentTransaction.replace(R.id.main_frame, studentListFragment, StudentListFragment.class.getName());
@@ -81,12 +96,34 @@ public class EddMainActivity extends AppCompatActivity {
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
     }
-    public void goToSignUPFragment()
-    {
-        Toast.makeText(this, "SignUpFragment", Toast.LENGTH_LONG).show();
-        SignUpFragment signUpFragment=new SignUpFragment();
-        signUpFragment.show(getFragmentManager(),SignUpFragment.class.getName());
+    public void goToTestingFragment() {
+        if (testingFragment == null)
+            testingFragment = new TestingFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.replace(R.id.main_frame, testingFragment, TestingFragment.class.getName());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.commit();
     }
+//    public void goFromToTestingFragment() {
+//        if (testingFragment == null)
+//            testingFragment = new TestingFragment();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//        fragmentTransaction.replace(R.id.main_frame, testingFragment, TestingFragment.class.getName());
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+//        fragmentTransaction.commit();
+//    }
+//    public void goToSignUPFragment()
+//    {
+//        Toast.makeText(this, "SignUpFragment", Toast.LENGTH_LONG).show();
+//        SignUpFragment signUpFragment=new SignUpFragment();
+//        signUpFragment.show(getFragmentManager(),SignUpFragment.class.getName());
+//    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -105,7 +142,7 @@ public class EddMainActivity extends AppCompatActivity {
             case R.id.logOut:
                 ParseUser.logOut();
 
-                goToSignInUserFragment();
+                goToLogIn_LogUPFragment();
                 break;
         }
 

@@ -1,4 +1,4 @@
-package com.abs.smih.educatorday;
+package com.abs.smih.educatorday.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.abs.smih.educatorday.R;
 import com.abs.smih.educatorday.dummy.DummyContent;
 
 /**
@@ -23,7 +24,7 @@ import com.abs.smih.educatorday.dummy.DummyContent;
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class StudentListFragment extends Fragment implements AbsListView.OnItemClickListener {
+public class StudentListFragment extends BaseFragment implements AbsListView.OnItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -109,6 +110,24 @@ public class StudentListFragment extends Fragment implements AbsListView.OnItemC
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    protected void initViews()
+    {
+
+    }
+
+    @Override
+    protected void bindData()
+    {
+
+    }
+
+    @Override
+    protected void setListeners()
+    {
+
     }
 
     @Override

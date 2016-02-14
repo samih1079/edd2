@@ -11,8 +11,8 @@ import java.lang.ref.WeakReference;
  */
 public abstract class BaseFragment extends Fragment {
 
-    protected View root;
-    protected WeakReference<Activity> weakContext;
+    protected View root;//the main container of this fragment
+    protected WeakReference<Activity> weakContext;//reference for the owner activity
     public interface FragmentInterActions{
         void backPressed(Fragment fragment);
     }

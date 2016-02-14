@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 
 import com.parse.Parse;
 import com.parse.ParseACL;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 /**
@@ -30,6 +31,9 @@ public class DBParseUtils {
         Parse.enableLocalDatastore(application);
 
         // Add your initialization code here
+        ParseObject.registerSubclass(Teacher.class);
+        ParseObject.registerSubclass(Student.class);
+        ParseObject.registerSubclass(EdEvent.class);
         //the keys from your  App at Parse.com
         Parse.initialize(application, "Fe3VmVYVd1JkQWHcvwA2acI91W4yB8YKoPx5VjSu", "GBoIzKW0037wFJgOggjqFxAAXXz3vEEy0IJwoLyw");
         ParseUser.enableAutomaticUser();

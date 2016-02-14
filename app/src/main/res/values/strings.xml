@@ -13,5 +13,25 @@
     <string name="chbx_keep_signin">Keep sign in</string>
     <string name="btnSignUpSave">Save</string>
     <string name="passw2">Password again</string>
+    <string name="signin">Sign in</string>
+    <string name="signup">Sign up</string>
+    <string name="cellphone">Cell Phone Number</string>
+    <string name="homephone">Home Phone</string>
+    <string name="identity">Identity Num</string>
+    <string name="schoolnum">School Num</string>
+    <string name="fullname">Full Name</string>
+    <string name="iseducator">Educator</string>
+    <string name="clear">Clear</string>
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="family">Family</string>
+    <string name="studentphone">Student Phone</string>
+    <string name="fathername">Father Name</string>
+    <string name="fatherphone">Father Phone</string>
+    <string name="mothername">Mother Name</string>
+    <string name="motherphone">Mother Phone</string>
+    <string name="comment">Comment</string>
+    <string name="cancel">Cancel</string>
+
 
 </resources>
